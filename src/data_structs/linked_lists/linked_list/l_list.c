@@ -60,7 +60,17 @@ void push(struct List* list, int data){
     list->size++;
 }
 void pop(struct List* list){
+
     // Return and remove the node at position == list->size
+    if (list->head == NULL){
+        printf("List is already empty\n");
+    }else{
+        struct Node* temp = list->head;
+        // Traverse to last node
+        while(temp->next != NULL){temp = temp->next; printf("hello\n");}
+        free(temp->next);
+        list->size--;
+    }
 }
 
 void print(struct List* list){
@@ -84,8 +94,10 @@ void main(){
     push(l, 3);
     push(l, 2);
     print(l);
-    // // pop(l);
-    // printf("Finished running.");
+    pop(l);
+    pop(l);
+    print(l);
+    printf("Finished running.");
     return;
 }
 
