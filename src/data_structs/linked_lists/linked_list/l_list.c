@@ -7,28 +7,55 @@ struct List* new_list(){
     listy->tail = NULL;
     listy->size = 0;
     return listy;
-}
+};
+
 void insert(struct List* list, int data, int pos){
-    return;
-}
-void append(struct List* list, int data){
-    return;
+    struct Node* temp;
+    if (list->head == NULL){
+        
+    }else{
+
+    }
 }
 void delete(struct List* list, int data){
     return;
 }
 void search(struct List* list, int data){
-    return;
+
+    struct Node* temp = list->head;
+    int pos = 0;
+    char found = 0;
+
+    if(!list || !list->head){
+        printf("Memory allocation error.\n");
+    }
+
+    printf("Searching for: %d\n", data);
+    while (temp->next != NULL){
+        if (temp->data == data){
+            printf("Found %d at position %d\n", data, pos);
+            found = 1;
+            return;
+        }
+        pos++;
+        temp = temp->next;
+    }
+    if (found == 0){
+        printf("%d not in list.\n", data);
+    }
 }
 void sort(struct List* list){
     return;
 }
+
 void list_free(struct List* list){
     return;
 }
+
 struct Node* new_node(){
     return malloc(1 * sizeof(struct Node*));
 }
+
 void node_free(struct List* list, int node_pos){
     struct Node* temp = list->head;
     for (int i = 0; i < node_pos; i++){
@@ -66,8 +93,10 @@ void pop(struct List* list){
         printf("List is already empty\n");
     }else{
         struct Node* temp = list->head;
-        // Traverse to last node
-        while(temp->next != NULL){temp = temp->next; printf("hello\n");}
+
+        // Traverse to second to last node
+        while(temp->next->next != NULL){temp = temp->next;}
+        temp->next = NULL;
         free(temp->next);
         list->size--;
     }
@@ -94,12 +123,11 @@ void main(){
     push(l, 3);
     push(l, 2);
     print(l);
+    search(l,3);
     pop(l);
     pop(l);
     print(l);
-    printf("Finished running.");
+    search(l,3);
+    printf("Finished running.\n");
     return;
 }
-
-
-
