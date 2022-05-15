@@ -1,3 +1,5 @@
+#ifndef L_LIST_H
+#define L_LIST_H
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,14 +18,15 @@
 
 // Struct for Node with generic datatype
 struct Node {
-    void* data;
+    int data;
     struct Node* next;
 };
 
 struct List {
     // Reference to head of list
-    struct Node** head;
-    struct Node** tail;
+    struct Node* head;
+    struct Node* tail;
     // Number of nodes in the list
     int size;
 };
+#endif
