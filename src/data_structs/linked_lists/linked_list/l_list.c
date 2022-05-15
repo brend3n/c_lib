@@ -48,7 +48,11 @@ void sort(struct List* list){
     return;
 }
 
+// TODO
 void list_free(struct List* list){
+    struct Node* temp;
+    temp = list->head;
+    while(temp!=NULL){};
     return;
 }
 
