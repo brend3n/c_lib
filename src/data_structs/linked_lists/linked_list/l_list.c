@@ -1,4 +1,6 @@
 #include "l_list.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 // Allocate space for list
 struct List* new_list(){

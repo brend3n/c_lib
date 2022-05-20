@@ -1,7 +1,6 @@
 #ifndef L_LIST_H
 #define L_LIST_H
-#include <stdio.h>
-#include <stdlib.h>
+#include "../../node/node.h"
 
 /*
  * Supported functions:
@@ -15,12 +14,6 @@
  *  8. free()
  *
 */
-
-// Struct for Node with generic datatype
-struct Node {
-    int data;
-    struct Node* next;
-};
 
 struct List {
     // Reference to head of list

@@ -6,7 +6,6 @@ struct Node{
 	int data;
 	int id;
 	struct Node* next;
-	
 }typedef Node;
 
 struct Queue{
