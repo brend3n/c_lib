@@ -6,12 +6,20 @@
 // Node
 #include "tree.h"
 
+int id = 0;
+
 struct Tree* new_tree(){
 	return malloc(sizeof(Tree*));
 }
 
-void add_child(){
-
+void add_child(Tree* t, int data){
+	if(!t->root){
+		t->root = malloc(sizeof(TreeNode*));
+		t->root->data = data;
+		t->root->node_id = id++;
+	}else{
+		
+	}
 }
 
 void add_parent(){
