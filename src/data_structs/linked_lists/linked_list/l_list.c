@@ -11,7 +11,7 @@ struct List* new_list(){
     return listy;
 };
 
-void insert(struct List* list, int data, int pos){
+void insert(struct List* list, void* data, int pos){
     struct Node* temp;
     if (list->head == NULL){
         
@@ -19,10 +19,10 @@ void insert(struct List* list, int data, int pos){
 
     }
 }
-void delete(struct List* list, int data){
+void delete(struct List* list, void* data){
     return;
 }
-void search(struct List* list, int data){
+void search(struct List* list, void* data){
 
     struct Node* temp = list->head;
     int pos = 0;
@@ -35,7 +35,7 @@ void search(struct List* list, int data){
     printf("Searching for: %d\n", data);
     while (temp->next != NULL){
         if (temp->data == data){
-            printf("Found %d at position %d\n", data, pos);
+            printf("Found %d at position %d\n", *(int*)data, pos);
             found = 1;
             return;
         }
@@ -43,7 +43,7 @@ void search(struct List* list, int data){
         temp = temp->next;
     }
     if (found == 0){
-        printf("%d not in list.\n", data);
+        printf("%d not in list.\n", *(int*)data);
     }
 }
 void sort(struct List* list){
@@ -71,7 +71,7 @@ void node_free(struct List* list, int node_pos){
     return;
 }
 
-void push(struct List* list, int data){
+void push(struct List* list, void* data){
 
     struct Node* temp;
 
@@ -125,15 +125,15 @@ void print(struct List* list){
 
 void main(){
     struct List* l = new_list();
-    push(l, 6);
-    push(l, 3);
-    push(l, 2);
+    push(l, *((int*)6));
+    push(l, *((int*)3));
+    push(l, *((int*)2));
     print(l);
-    search(l,3);
+    search(l,*((int*)3));
     pop(l);
     pop(l);
     print(l);
-    search(l,3);
+    search(l,*((int*)3));
     printf("Finished running.\n");
     return;
 }
